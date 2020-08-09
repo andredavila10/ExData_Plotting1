@@ -6,4 +6,8 @@ names(power) <- c("Date","Time","Global_active_power","Global_reactive_power","V
 powerdates <- subset(power,power$Date=="1/2/2007" | power$Date =="2/2/2007") 
 powerdates$Date <- as.Date(powerdates$Date, format="%d/%m/%Y")
 #Plotting histogram
-hist(as.numeric(as.character(powerdates$Global_active_power)),col="red",main="Global Active Power",xlab="Global Active Power(kilowatts)")
+hist(as.numeric(powerdates$Global_active_power),col="red",main="Global Active Power",xlab="Global Active Power(kilowatts)")
+#Copying the plot to PNG
+dev.copy(png, file="plot1.png", width = 480, height=480)
+dev.off()
+
